@@ -2,9 +2,13 @@
 
 namespace Database\Seeders;
 
+use App\Models\Commune;
+use App\Models\Customer;
+use App\Models\Region;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,11 +17,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
+        // Creamos el usuario administrador, con el cual se va a hacer el login para los servicios
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => Hash::make('adminContrasenia')
         ]);
+
+        Region::factory(5)->create();
+        Commune::factory(5)->create();
+        Customer::factory(5)->create();
     }
 }
