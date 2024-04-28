@@ -13,6 +13,9 @@ class HelpersLogs
 
     static function setlogOut($msg, $level)
     {
-        Log::log($level, 'Log de salida || ' . $msg);
+        // Si la el APP_DEBUG es verdadero
+        if (env('APP_DEBUG')) {
+            Log::log($level, 'Log de salida || ' . $msg);
+        }
     }
 }
