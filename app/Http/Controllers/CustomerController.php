@@ -6,16 +6,15 @@ use App\Helpers\HelpersLogs;
 use App\Helpers\HelpersResponseApi;
 use App\Models\Customer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class CustomerController extends Controller
 {
 
-    function index(string|null $search = null)
+    function index(Request $request, string|null $search = null)
     {
         try {
             // Log de entrada
-            HelpersLogs::setlogIn('Consulta de customers con el search: ' .  $search, 'info');
+            HelpersLogs::setlogIn('IP: ' . $request->ip() . '|| Consulta de customers con el search: ' .  $search, 'info');
 
             // Query para los customers
             $query = Customer::query()->with(['region', 'commune'])->where('status', '=', 'A');
@@ -42,7 +41,7 @@ class CustomerController extends Controller
     {
         try {
             // Log de entrada
-            HelpersLogs::setlogIn('Creacion de customers request: ' .  json_encode($request->all()), 'info');
+            HelpersLogs::setlogIn('IP: ' . $request->ip() . '|| Creacion de customers request: ' .  json_encode($request->all()), 'info');
 
             // Creamos el customer
             $customer = Customer::create([
@@ -69,11 +68,11 @@ class CustomerController extends Controller
         }
     }
 
-    function destroy(string $dni)
+    function destroy(Request $request, string $dni)
     {
         try {
             // Log de entrada
-            HelpersLogs::setlogIn('Eliminar el customer con el dni: ' .  $dni, 'info');
+            HelpersLogs::setlogIn('IP: ' . $request->ip() . '|| Eliminar el customer con el dni: ' .  $dni, 'info');
 
             // Validamos que exista el customer por el dni, que este actvo o desactivo
             if (!Customer::whereIn('status', ['A', 'I'])->where('dni', $dni)->first()) return HelpersResponseApi::responseFailApiWithMessage('El customer no existe', 422);

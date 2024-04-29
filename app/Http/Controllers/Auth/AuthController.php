@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Helpers\HelpersController;
+use App\Helpers\HelpersLogs;
 use App\Helpers\HelpersResponseApi;
 use App\Http\Controllers\Controller;
 use App\Models\TokenUser;
@@ -16,6 +16,8 @@ class AuthController extends Controller
     function login(Request $request)
     {
         try {
+            HelpersLogs::setlogIn('IP: ' . $request->ip() . '|| Login request: ' .  json_encode($request->all()), 'info');
+
             // Verificamos que exista el usuario
             if (!Auth::attempt($request->only(['email', 'password']))) {
                 return HelpersResponseApi::responseFailApiWithMessage('Unathorize', 401);
