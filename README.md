@@ -7,6 +7,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Sobre este proyecto
+
+Este proyecto representa una API REST construida con Laravel. He implementado un sistema de autenticación personalizado para garantizar la seguridad y el acceso adecuado a todos los servicios.
+
+## Tecnología Utilizada:
+
+- Laravel (Versión 11): He utilizado la última versión de Laravel para desarrollar esta API,      aprovechando sus características avanzadas y su robusta arquitectura.
+
 ## Requerimientos
 
 - Version de PHP ^8.2
