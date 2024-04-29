@@ -25,7 +25,7 @@ class CustomerFactory extends Factory
         if (!$region) {
             $region = Region::factory()->create([
                 'status' => 'A'
-            ]);
+            ])->first();
         }
 
         // Seleccionamos el commune que este relacionado con la region
@@ -36,7 +36,7 @@ class CustomerFactory extends Factory
             $commune = Commune::factory()->create([
                 'id_reg' => $region->id_reg,
                 'status' => 'A'
-            ]);
+            ])->first();
         }
 
         return [
