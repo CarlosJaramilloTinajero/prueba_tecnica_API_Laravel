@@ -13,8 +13,8 @@ class HelpersLogs
 
     static function setlogOut($msg, $level)
     {
-        // Si la el APP_DEBUG es verdadero
-        if (env('APP_DEBUG')) {
+        // Si la el APP_ENV es local, no utilice el APP_DEBUG por que no me deja utilizarlo
+        if (env('APP_ENV') == 'local') {
             Log::log($level, 'Log de salida || ' . $msg);
         }
     }
