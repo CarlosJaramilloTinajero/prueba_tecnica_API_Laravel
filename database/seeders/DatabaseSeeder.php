@@ -26,6 +26,6 @@ class DatabaseSeeder extends Seeder
 
         Region::factory(5)->create();
         Commune::factory(5)->create();
-        Customer::factory(5)->create();
+        Customer::factory(50)->create();
     }
 }

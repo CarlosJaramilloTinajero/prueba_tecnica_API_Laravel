@@ -24,7 +24,7 @@ class CommuneFactory extends Factory
         if (!$region) {
             $region = Region::factory()->create([
                 'status' => 'A'
-            ]);
+            ])->first();
         }
 
         return [
