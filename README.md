@@ -23,6 +23,7 @@ Este proyecto representa una API REST construida con Laravel. He implementado un
 ## Instalacion pasos
 
 - Ejecuta el comando 'composer i' para instalar las dependencias del proyecto.
+- Ejecurar el comando 'php artisan key:generate' para generar la clave de la aplicación.
 - Configurar la conexion a la base de datos.
 - Ejecuta el comando 'php artisan migrate --seed' para crear las tablas en la base de datos y para añadir registros de prueba.
 - Ejecuta el comando 'php artsan serve' para habilitar el servidor en local.
