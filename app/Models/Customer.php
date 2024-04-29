@@ -10,6 +10,7 @@ class Customer extends Model
 {
     use HasFactory;
     protected $fillable = ['id_reg', 'id_com', 'email', 'name', 'last_name', 'address', 'date_reg', 'status', 'dni'];
+    protected $hidden = ['created_at', 'updated_at', 'date_reg'];
 
     function region(): BelongsTo
     {

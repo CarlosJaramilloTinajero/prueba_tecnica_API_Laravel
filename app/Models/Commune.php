@@ -11,6 +11,7 @@ class Commune extends Model
 {
     use HasFactory;
     protected $fillable = ['id_reg', 'description', 'status'];
+    protected $hidden = ['created_at', 'updated_at', 'date_reg'];
 
     function region(): BelongsTo
     {

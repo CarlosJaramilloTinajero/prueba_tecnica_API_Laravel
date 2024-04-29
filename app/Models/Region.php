@@ -10,6 +10,7 @@ class Region extends Model
 {
     use HasFactory;
     protected $fillable = ['description', 'status'];
+    protected $hidden = ['created_at', 'updated_at', 'date_reg'];
 
     function customers(): HasMany
     {

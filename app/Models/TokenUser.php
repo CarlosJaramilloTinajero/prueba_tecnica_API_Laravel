@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -26,7 +27,7 @@ class TokenUser extends Model
     // Funcion para validar si el token ya esta expirado
     function isExpired(): bool
     {
-        $expired = $this->expired_at->isPast();
+        $expired = (new Carbon($this->expired_at))->isPast();
 
         // Si ya esta expirado actualizamos la propiedad expired a true
         if ($expired) {
