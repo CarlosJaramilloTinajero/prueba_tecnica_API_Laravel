@@ -24,8 +24,8 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('adminContrasenia')
         ]);
 
-        Region::factory(5)->create();
-        Commune::factory(5)->create();
-        Customer::factory(50)->create();
+        Region::factory(30)->create();
+        Commune::factory(30)->create();
+        Customer::factory(70)->create();
     }
 }
