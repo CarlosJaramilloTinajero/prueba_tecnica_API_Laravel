@@ -18,6 +18,7 @@ Este proyecto representa una API REST construida con Laravel. He implementado un
 ## Requerimientos
 
 - Version de PHP ^8.2
+- Composer
 
 ## Instalacion pasos
 
